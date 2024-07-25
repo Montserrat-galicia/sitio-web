@@ -1,0 +1,80 @@
+/*Selector de universal, se selecciona todo*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*Selector de etiqueta*/
+body{
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-weight: 500;
+    font-style: normal;
+    background-color: #BAD7E9;
+
+}
+p{
+    color: #2f3645;
+}
+/*Selector de clase*/
+.parrafo1{
+    color: #434f67;
+}
+/*Selector de id*/
+#linktienda{
+    color: #2f3645;
+}
+
+.Charles1{
+    height: 370px;
+    margin: 40px;
+    border-radius: 100%;
+
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+ 
+}
+
+.menu{
+    background-color: #FEFDED;
+    margin: 0px;
+}
+.menu ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li a{
+    display: block;
+    color:#001253 ;
+    text-align: center;
+    padding: 14 px 20 px;
+    text-decoration: none;
+}
+.leclerc{
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#relevantes {
+    padding: 10px;
+    justify-content: center;
+}
+#escuderias{
+    padding: 10px;
+}
+.subtitulorojo{
+    padding: 10px;
+}
+
+
