@@ -1,114 +1,300 @@
+¡Hola! Te ayudo con un código CSS sencillo para un prototipo de consultorio dental. Aquí tienes un ejemplo completo:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap"
-        rel="stylesheet">
-    <title>Piloto de la F1</title>    
+    <title>Sonrisa Perfecta - Consultorio Dental</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y Navegación */
+        header {
+            background: linear-gradient(135deg, #4fc3f7, #0288d1);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e1f5fe;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%230288d1" opacity="0.1"/></svg>');
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0288d1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0288d1;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0277bd;
+        }
+
+        /* Servicios */
+        .servicios {
+            padding: 4rem 0;
+            background: #f8fdff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0288d1;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .servicio-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .servicio-icon {
+            font-size: 3rem;
+            color: #0288d1;
+            margin-bottom: 1rem;
+        }
+
+        /* Sobre Nosotros */
+        .sobre-nosotros {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* Contacto */
+        .contacto {
+            padding: 4rem 0;
+            background: #0288d1;
+            color: white;
+        }
+
+        .contacto-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #01579b;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .sobre-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header -->
     <header>
-        <nav class="menu">
-            <ul>
-                <li>
-                    <a href="#">Inicio</a>
-                </li>
-                <li>
-                    <a href="#galeria">Imágenes</a>
-                </li>
-                <li> 
-                    <a href="#relevantes">Años relevantes</a>
-                </li>
+        <nav class="container">
+            <div class="logo">Sonrisa Perfecta</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="info">
-    <!-- Encabezados -->
-    <h1> Charles Leclerc </h1>
-    <!--Párrafo-->
-    <p class="parrafo1">
-        Nacido el 16 de octubre de 1997, Charles Leclerc ha cosechado hazañas en el karting desde muy joven. Campeón de
-        Francia en 2009, ganador de la Monaco Kart Cup en 2010, del CIK-FIA Academy Trophy y de la Junior World Cup en
-        2011, siguió brillando en la élite mundial de la disciplina hasta 2013.
-    </div>
-
-    </p>
-    <hr>
-   <h3 id="galeria">Galería</h3> 
-    <div class="container">
-        <!--Imagen desde un sitio-link-->
-        <img class="Charles1" src="https://th.bing.com/th/id/OIP.ZE7Ar4Sclvx9w0ng2ETP-gHaE8?rs=1&pid=ImgDetMain"
-        alt="Foto de Charles"> 
-           <!--Imagen desde local-->
-      <!--<img style="width: 300px;" src="/imagenes/Charles1.jpg" alt="Otra foto de Charles">--> 
-       
-    </div>
-
-  <!--Lista desordenada-->   
-    <h3 id="escuderia">Escuderias F1 donde ha estado</h3>
-    <ul>
-        <li>Alfa Romero</li>
-        <li>Ferrari</li>
-
-
-    </ul>
-    <!--Lista desordenada-->
-    <h3 id="relevantes">Años relevantes</h3>
-    <ul>
-        <li>2014: Charles siguió creciendo en monoplazas. En su primera temporada fue el mejor debutante en la Fórmula
-            Renault</li>
-        <li>2016: Ganó la GP3 Serie</li>
-        <li>2020: La temporada 2020 estuvo por debajo de las expectativas de Charles, ya que solo pudo subir al podio en
-            dos ocasiones y acabó octavo en la clasificación de pilotos.</li>
-        <li>2021: El piloto monegasco consiguió dos pole positions más y un podio.</li>
-
-        <!--Formulario-->
-        <form action="">
-            <!--Label nos permite ofrecer un valor a los datos-->
-            <label for="">Nombre</label>
-            <input type="text">
-            <br>
-
-            <h3 class="subtitulorojo">¿Que team eres?</h3>
-            <label for="">Ferrari</label>
-            <input type="radio">
-            <br>
-
-            <label for="">RedBull</label>
-            <input type="radio">
-            <br>
-
-            <label for="">Mercedes</label>
-            <input type="radio">
-            <br>
-
-            <h3 class="subtitulorojo">¿Que color propones para la nueva linea de merch?
-            </h3>
-            <!--Link-->
-            <a href="https://store.ferrari.com/es-mx/hombre/scuderia-ferrari/replica-scuderia-ferrari/"
-                target="_blank">Clic para visitar la Tienda Online Ferrari</a>
-            <hr>
-            <img style="width: 300px;"
-                src="https://cf.camisetasfutbol.com.cn/upload/ttmall/img/20230323/0d3c6caeae2c151667086e7376732e46.png" alt="Merch">
-            <img style="width: 300px;" src= "https://cdn.shopify.com/s/files/1/0022/1659/1458/products/701219147001_PP_1_FERRARI_WHITE_1200x.png?v=1656421644" alt="Merch"> 
-            <img style="width: 300px;" src="https://cdn.webshopapp.com/shops/284982/files/451985403/900x660x2/ferrari-sainz-kids-cap-2024.jpg" alt="">   
-
-            <label for="">Color</label>
-            <input type="color">
-
-        </form>
-        <div class="leclerc">
-            <img class="leclerc" src="/imagenes/charlesl.jpg" alt="">
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Tu Sonrisa es Nuestra Prioridad</h1>
+            <p>Profesionales dedicados a cuidar tu salud dental con la más alta tecnología y calidez humana</p>
+            <a href="#contacto" class="btn">Solicitar Cita</a>
         </div>
+    </section>
 
+    <!-- Servicios -->
+    <section class="servicios" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">🦷</div>
+                    <h3>Limpieza Dental</h3>
+                    <p>Limpieza profesional para mantener tus dientes saludables</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">😁</div>
+                    <h3>Blanqueamiento</h3>
+                    <p>Recupera el blanco natural de tu sonrisa</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🦷</div>
+                    <h3>Ortodoncia</h3>
+                    <p>Corrección de la posición dental</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">👍</div>
+                    <h3>Implantes</h3>
+                    <p>Soluciones permanentes para dientes perdidos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="sobre-nosotros" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="sobre-content">
+                <div>
+                    <h3>Más de 15 años de experiencia</h3>
+                    <p>Somos un equipo de profesionales comprometidos con la salud dental de nuestros pacientes. Utilizamos tecnología de última generación y técnicas modernas para garantizar los mejores resultados.</p>
+                </div>
+                <div>
+                    <h3>Nuestra Misión</h3>
+                    <p>Brindar atención dental de calidad, personalizada y accesible para toda la familia, promoviendo la salud bucal y la confianza en cada sonrisa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Agenda tu Cita</h2>
+            <form class="contacto-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Teléfono" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Mensaje" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sonrisa Perfecta - Consultorio Dental. Todos los derechos reservados.</p>
+            <p>Horario: Lunes a Viernes 9:00 - 18:00 | Sábados 9:00 - 13:00</p>
+        </div>
+    </footer>
 </body>
-
 </html>
+
