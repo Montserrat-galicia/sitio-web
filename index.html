@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cerritos - Consultorio Dental</title>
+    <title>Consultorio Dental - Prototipo</title>
     <style>
-        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
@@ -14,290 +12,116 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: Arial, sans-serif;
         }
 
-        .container {
-            width: 90%;
+        .seccion {
+            padding: 80px 20px;
+            border-bottom: 2px dashed #ccc;
+            min-height: 300px;
+        }
+
+        .contenedor {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        /* Header y Navegación */
-        header {
-            background: linear-gradient(135deg, #4fc3f7, #0288d1);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* Header */
+        #header {
+            background: #f0f0f0;
+            padding: 20px 0;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #e1f5fe;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%230288d1" opacity="0.1"/></svg>');
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #0288d1;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #666;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #0288d1;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #0277bd;
+        /* Hero */
+        #hero {
+            background: #e8f4f8;
         }
 
         /* Servicios */
-        .servicios {
-            padding: 4rem 0;
-            background: #f8fdff;
+        #servicios {
+            background: #f9f9f9;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #0288d1;
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .servicio-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .servicio-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .servicio-icon {
-            font-size: 3rem;
-            color: #0288d1;
-            margin-bottom: 1rem;
-        }
-
-        /* Sobre Nosotros */
-        .sobre-nosotros {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .sobre-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        /* Nosotros */
+        #nosotros {
+            background: #f0f8f0;
         }
 
         /* Contacto */
-        .contacto {
-            padding: 4rem 0;
-            background: #0288d1;
-            color: white;
-        }
-
-        .contacto-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+        #contacto {
+            background: #e8e8f8;
         }
 
         /* Footer */
-        footer {
-            background: #01579b;
+        #footer {
+            background: #333;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 40px 20px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
+        .nombre-seccion {
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-            .sobre-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
+        .contenido-placeholder {
+            text-align: center;
+            color: #888;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">Sonrisa cerritense</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+    <header id="header" class="seccion">
+        <div class="contenedor">
+            <div class="nombre-seccion">HEADER / MENÚ DE NAVEGACIÓN</div>
+            <div class="contenido-placeholder">Logo y menú irían aquí</div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="container">
-            <h1>Sonríe sin problemas</h1>
-            <p>Profesionales dedicados a cuidar tu salud dental</p>
-            <a href="#contacto" class="btn">Solicitar Cita</a>
+    <!-- Hero -->
+    <section id="hero" class="seccion">
+        <div class="contenedor">
+            <div class="nombre-seccion">SECCIÓN HERO / PRINCIPAL</div>
+            <div class="contenido-placeholder">Título principal y llamado a la acción</div>
         </div>
     </section>
 
     <!-- Servicios -->
-    <section class="servicios" id="servicios">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <div class="servicio-icon">🦷</div>
-                    <h3>Limpieza Dental</h3>
-                    <p>Limpieza profesional para mantener tus dientes saludables</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">😁</div>
-                    <h3>Blanqueamiento</h3>
-                    <p>información breve del tratamiento</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">🦷</div>
-                    <h3>Resinas</h3>
-                    <p>información breve del tratamiento</p>
-                </div>
-                <div class="servicio-card">
-                    <div class="servicio-icon">👍</div>
-                    <h3>Revisión dental</h3>
-                    <p>información breve del tratamiento</p>
-                </div>
-            </div>
+    <section id="servicios" class="seccion">
+        <div class="contenedor">
+            <div class="nombre-seccion">SECCIÓN DE SERVICIOS</div>
+            <div class="contenido-placeholder">Lista de servicios dentales</div>
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
-    <section class="sobre-nosotros" id="nosotros">
-        <div class="container">
-            <h2 class="section-title">Sobre Nosotros</h2>
-            <div class="sobre-content">
-                <div>
-                    <h3>Años de experiencia nos respaldan</h3>
-                    <p>Somos un equipo de profesionales comprometidos con la salud dental de nuestros pacientes.</p>
-                </div>
-                <div>
-                    <h3>Nuestra Misión</h3>
-                    <p>Brindar atención dental de calidad, personalizada y accesible para toda la familia, promoviendo la salud bucal y la confianza en cada sonrisa.</p>
-                </div>
-            </div>
+    <!-- Nosotros -->
+    <section id="nosotros" class="seccion">
+        <div class="contenedor">
+            <div class="nombre-seccion">SECCIÓN NOSOTROS</div>
+            <div class="contenido-placeholder">Información sobre el consultorio</div>
         </div>
     </section>
 
     <!-- Contacto -->
-    <section class="contacto" id="contacto">
-        <div class="container">
-            <h2 class="section-title">Agenda tu Cita</h2>
-            <form class="contacto-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Nombre completo" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Correo electrónico" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Teléfono" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Mensaje" rows="5"></textarea>
-                </div>
-                <button type="submit" class="btn">Enviar Solicitud</button>
-            </form>
+    <section id="contacto" class="seccion">
+        <div class="contenedor">
+            <div class="nombre-seccion">SECCIÓN DE CONTACTO</div>
+            <div class="contenido-placeholder">Formulario de contacto y ubicación</div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Sonrisa cerritense - Consultorio Dental. Todos los derechos reservados.</p>
-            <p>Horario: Lunes a Viernes 00:00 - 00:00 </p>
+    <footer id="footer" class="seccion">
+        <div class="contenedor">
+            <div class="nombre-seccion">FOOTER / PIE DE PÁGINA</div>
+            <div class="contenido-placeholder">Información de contacto y enlaces</div>
         </div>
     </footer>
 </body>
 </html>
-
-
-
-
-
-
