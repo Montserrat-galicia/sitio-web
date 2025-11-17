@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultorio Dental - Prototipo</title>
+    <title>Cerritos - Consultorio Dental</title>
     <style>
+        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
@@ -12,118 +13,451 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
 
-        .seccion {
-            padding: 80px 20px;
-            border-bottom: 2px dashed #ccc;
-            min-height: 300px;
-        }
-
-        .contenedor {
+        .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* Header */
-        #header {
-            background: #f0f0f0;
-            padding: 20px 0;
+        /* Header y Navegación */
+        header {
+            background: linear-gradient(135deg, #4fc3f7, #0288d1);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Hero */
-        #hero {
-            background: #e8f4f8;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e1f5fe;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%230288d1" opacity="0.1"/></svg>');
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0288d1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0288d1;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #0277bd;
+        }
+
+        .btn-agendar {
+            background: #4caf50;
+            margin-left: 10px;
+        }
+
+        .btn-agendar:hover {
+            background: #45a049;
         }
 
         /* Servicios */
-        #servicios {
-            background: #f9f9f9;
+        .servicios {
+            padding: 4rem 0;
+            background: #f8fdff;
         }
 
-        /* Nosotros */
-        #nosotros {
-            background: #f0f8f0;
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0288d1;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .servicio-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .servicio-icon {
+            font-size: 3rem;
+            color: #0288d1;
+            margin-bottom: 1rem;
+        }
+
+        /* Sobre Nosotros */
+        .sobre-nosotros {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* Agendar Cita Section */
+        .agendar-cita {
+            padding: 4rem 0;
+            background: #e8f5e9;
+        }
+
+        .cita-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0288d1;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 2rem;
         }
 
         /* Contacto */
-        #contacto {
-            background: #e8e8f8;
+        .contacto {
+            padding: 4rem 0;
+            background: #0288d1;
+            color: white;
+        }
+
+        .contacto-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contacto-form .form-group input,
+        .contacto-form .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
         }
 
         /* Footer */
-        #footer {
-            background: #333;
+        footer {
+            background: #01579b;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 2rem 0;
         }
 
-        .nombre-seccion {
-            font-size: 24px;
-            font-weight: bold;
-            color: #666;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-        .contenido-placeholder {
-            text-align: center;
-            color: #888;
-            font-style: italic;
+            .sobre-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-agendar {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header id="header" class="seccion">
-        <div class="contenedor">
-            <div class="nombre-seccion">HEADER / MENÚ DE NAVEGACIÓN</div>
-            <div class="contenido-placeholder">Logo y menú irían aquí</div>
-        </div>
+    <header>
+        <nav class="container">
+            <div class="logo">Sonrisa cerritense</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#agendar">Agendar Cita</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Hero -->
-    <section id="hero" class="seccion">
-        <div class="contenedor">
-            <div class="nombre-seccion">SECCIÓN PRINCIPAL</div>
-            <div class="contenido-placeholder">Título principal y llamado a la acción</div>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Sonríe sin problemas</h1>
+            <p>Profesionales dedicados a cuidar tu salud dental</p>
+            <a href="#agendar" class="btn">Agendar Cita Ahora</a>
         </div>
     </section>
 
     <!-- Servicios -->
-    <section id="servicios" class="seccion">
-        <div class="contenedor">
-            <div class="nombre-seccion">SECCIÓN DE SERVICIOS</div>
-            <div class="contenido-placeholder">Lista de servicios dentales</div>
+    <section class="servicios" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">🦷</div>
+                    <h3>Limpieza Dental</h3>
+                    <p>Limpieza profesional para mantener tus dientes saludables</p>
+                    <button class="btn btn-agendar" onclick="scrollToAgendar()">Agendar</button>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">😁</div>
+                    <h3>Blanqueamiento</h3>
+                    <p>información breve del tratamiento</p>
+                    <button class="btn btn-agendar" onclick="scrollToAgendar()">Agendar</button>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🦷</div>
+                    <h3>Resinas</h3>
+                    <p>información breve del tratamiento</p>
+                    <button class="btn btn-agendar" onclick="scrollToAgendar()">Agendar</button>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">👍</div>
+                    <h3>Revisión dental</h3>
+                    <p>información breve del tratamiento</p>
+                    <button class="btn btn-agendar" onclick="scrollToAgendar()">Agendar</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Nosotros -->
-    <section id="nosotros" class="seccion">
-        <div class="contenedor">
-            <div class="nombre-seccion">SECCIÓN NOSOTROS</div>
-            <div class="contenido-placeholder">Información sobre el consultorio</div>
+    <!-- Sobre Nosotros -->
+    <section class="sobre-nosotros" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="sobre-content">
+                <div>
+                    <h3>Años de experiencia nos respaldan</h3>
+                    <p>Somos un equipo de profesionales comprometidos con la salud dental de nuestros pacientes.</p>
+                </div>
+                <div>
+                    <h3>Nuestra Misión</h3>
+                    <p>Brindar atención dental de calidad, personalizada y accesible para toda la familia, promoviendo la salud bucal y la confianza en cada sonrisa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendar Cita -->
+    <section class="agendar-cita" id="agendar">
+        <div class="container">
+            <h2 class="section-title">Agendar Cita</h2>
+            <form class="cita-form" id="formCita">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha preferida *</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="hora">Hora preferida *</label>
+                        <select id="hora" name="hora" required>
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="servicio">Servicio solicitado *</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="limpieza">Limpieza Dental</option>
+                            <option value="blanqueamiento">Blanqueamiento</option>
+                            <option value="resinas">Resinas</option>
+                            <option value="revision">Revisión Dental</option>
+                            <option value="ortodoncia">Ortodoncia</option>
+                            <option value="extraccion">Extracción</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje adicional</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe brevemente tu consulta o síntomas..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-agendar">Confirmar Cita</button>
+                </div>
+            </form>
         </div>
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="seccion">
-        <div class="contenedor">
-            <div class="nombre-seccion">SECCIÓN DE CONTACTO</div>
-            <div class="contenido-placeholder">Formulario de contacto y ubicación</div>
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <form class="contacto-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Teléfono" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Mensaje" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="footer" class="seccion">
-        <div class="contenedor">
-            <div class="nombre-seccion">FOOTER / PIE DE PÁGINA</div>
-            <div class="contenido-placeholder">Información de contacto y enlaces</div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sonrisa cerritense - Consultorio Dental. Todos los derechos reservados.</p>
+            <p>Horario: Lunes a Viernes 00:00 - 00:00</p>
         </div>
     </footer>
+
+    <script>
+        function scrollToAgendar() {
+            document.getElementById('agendar').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        document.getElementById('formCita').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Cita agendada exitosamente! Nos pondremos en contacto contigo para confirmar.');
+            this.reset();
+        });
+
+        // Establecer fecha mínima como hoy
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('fecha').min = today;
+    </script>
 </body>
 </html>
-
-
